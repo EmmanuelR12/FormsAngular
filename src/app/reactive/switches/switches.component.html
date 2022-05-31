@@ -1,8 +1,7 @@
 <h2>Template:Switches</h2>
 <hr>
 
-
-<form>
+<form  [formGroup]="miFormulario" (ngSubmit)="guardar()">
   <div class="row mb-3">
    <label class="col-sm-3 col-form-label">Genero</label> 
    <div class="col-sm-9">
@@ -10,8 +9,8 @@
        <input 
 	  class="form-check-input" 
 	  type="radio" 
-	  name="radioGenero" 
 	  id="flexRadioDefault1"
+	  formControlName="genero"
 	  value="M"
 	  >
 	  <label class="form-check-label" for="flexRadioDefault1">
@@ -22,8 +21,8 @@
        <input 
 	  class="form-check-input" 
 	  type="radio" 
-	  name="radioGenero" 
 	  id="flexRadioDefault2"
+	  formControlName="genero"
 	  value="F"
 	  >
 	  <label class="form-check-label" for="flexRadioDefault2">
@@ -43,6 +42,7 @@
 	   type="checkbox" 
 	   role="switch" 
 	   id="flexSwitchCheckChecked"
+	   formControlName="notifiaciones"
 	   >
 	   <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notifiaciones</label>
       </div>
@@ -59,6 +59,7 @@
 	   class="form-check-input" 
 	   type="checkbox" 
 	   id="inlineCheckbox2" 
+	   formControlName="condiciones"
 	   >
 	   <label class="form-check-label" for="inlineCheckbox2">
 	    Terminos y condiciones
@@ -80,17 +81,17 @@
   <!--Fin boton-->
 </form>
 
-<!--<h4>Valor del formulario</h4>-->
-<!--<pre>{{miFormulario.value | json}}</pre>-->
-<!--<br>-->
+<h4>Valor del formulario</h4>
+<pre>{{miFormulario.value | json}}</pre>
+<br>
 
-<!--<h4>Persona</h4>-->
-<!--<pre>{{persona| json}}</pre>-->
-<!--<br>-->
+<h4>Persona</h4>
+<pre>{{persona| json}}</pre>
+<br>
 
-<!--<h4>Valid</h4>-->
-<!--<pre>{{miFormulario.valid}}</pre>-->
-<!--<br>-->
+<h4>Valid</h4>
+<pre>{{miFormulario.valid}}</pre>
+<br>
 
 <!--<h4>Terminos</h4>-->
 <!--<pre>{{miFormulario.controls['terminos']?.errors | json}}</pre>-->

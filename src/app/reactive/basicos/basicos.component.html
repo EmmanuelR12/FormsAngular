@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col">
-    <form [formGroup]="miFormulario">
+    <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
       <!--Campo de producto-->
       <div class="mb-3 row">
 	<label class="col-sm-3 col-form-label">Producto</label>	
@@ -14,7 +14,9 @@
 	  placeholder="Nombre del producto" 
 	  formControlName="nombre"
 	  >
-	  <span class="form-text text-danger" >Debe de ser de 3 letras</span>
+	  <span class="form-text text-danger" 
+		*ngIf="campoEsValido('nombre')">
+	    Debe de ser de 3 letras</span>
 	</div>
       </div> 
       <!--Precio de producto-->
@@ -25,7 +27,9 @@
 	  class="form-control" 
 	  formControlName="precio"
 	  placeholder="Precio del producto" >
-	  <span class="form-text text-danger" >El valor debe de ser mayor a 0</span>
+	  <span class="form-text text-danger" 
+		*ngIf="campoEsValido('precio')"
+	    >El valor debe de ser mayor a 0</span>
 	</div>
       </div> 
       <!--Precio de existencias-->
@@ -38,11 +42,14 @@
 	  placeholder="Existencias del producto" 
 	  formControlName="existencias"
 	  >
+	  <span class="form-text text-danger" 
+		*ngIf="campoEsValido('existencias')"
+	    >El valor debe de ser mayor a 0</span>
 	</div>
       </div> 
       <div class="row">
 	<div class="col">
-	  <button type="submit" 
+	  <button type="submit"  
 	    class="btn btn-primary float-end">
 	    Guardar
 	  </button>
